@@ -18,7 +18,7 @@ try:
     text=r.recognize_google(audio)
     print(text)
 
-    if ['ok','nova']==text.lower().split(): #Novice Operational Virtual Assistant
+    if ['ok','nova']==text.lower().split(): #Novice yet Operational Virtual Assistant
         speak_text()        
         f=1
 
