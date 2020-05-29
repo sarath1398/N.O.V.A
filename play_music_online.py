@@ -9,8 +9,10 @@ def playmusic():
    
     options=webdriver.ChromeOptions()
     options.add_argument('--headless')
-    options.binary_location = r'C:\Program Files (x86)\BraveSoftware\Brave-Browser\Application\brave.exe'
-    driver_path = r'C:\Program Files (x86)\BraveSoftware\Brave-Browser\Application\chromedriver.exe'
+    path=' ' #Set the path of browser.exe file
+    options.binary_location = r'{}'.format(path) # Configure browser path
+    path1=' ' #Set the path for webdriver
+    driver_path = r'{}'.format(path1) #Configure webdriver path
 
     driver=webdriver.Chrome(options=options,executable_path=driver_path)
 
@@ -22,8 +24,8 @@ def playmusic():
 
     inp=driver.find_element_by_xpath('//input[@id="search"]')
     #song=input('Enter Song: ')
-    song=['Unna Nenachu','Neenga Mudiyuma','Veyyon Silli','ButtaBomma']
-    inp.send_keys(random.choice(song)+' lyric video ')
+    song=[] #Random list with your favourite songs...Will try to add prioritized shuffle function in playlist
+    inp.send_keys(random.choice(song)+' lyric video ') #Random song selection
     driver.find_element_by_xpath('//button[@id="search-icon-legacy"]').click()
 
     video=wait.until(EC.presence_of_element_located((By.XPATH,'//a[@id="video-title"]')))
